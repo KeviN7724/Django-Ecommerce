@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+    {% block title %} {% endblock title %}
+
+  </title>
+  <meta name="E-commerce website we deliver products countrywide" content="">
+  <meta name="local-jumia,selling,products" content="ecommerce">
+
+ 
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.g{% static '.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static '/assets/css/main.css' %}" rel="stylesheet">
+
+  <!---------Cdnjs----------------------------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+   integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        
+        <a href="/" class="logo d-flex align-items-center">
+        <img src="{% static 'images/cart.png' %}" alt="" class="img-fluid">Kitale Shopping-cart
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <!--<li><a href="/blog">Blog</a></li>--->
+          <li><a href="/about">About</a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <li><a href="/profile">My Profile <i class="fa-duotone fa-light fa-square-user"></i></a></li>
+          
+          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart"
+           data-container="body" data-toggle="popover"data-placement="bottom" data-html="true">
+           <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart">0</span>)</button>
+
+
+           <!--<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content=">Click to toggle popover</button>-->
+          
+      
+
+          {% if request.user.is_authenticated %}
+          <li><a href="/auth/logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a></li>
+          {% else %}
+          <li class="dropdown"><a href="#"><span>SignIn <i class="fa-solid fa-user"></i></span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="/auth/signup">Sign Up <i class="fa-solid fa-user"></i></a></li>
+              <li><a href="/auth/login/">Login</a></li>
+            </ul>
+          </li>
+          <li><a class="bg-dark p-3 m-2" href="/contact">Contact<i class="fa-solid fa-phone-arrow-up-right"></i></a></li>
+          {% endif %}
+          
+          
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{% static 'images/shop.png' %}" alt="" data-aos="fade-in">
+      <!--<img src="{% static 'images/cart.png' %}" alt="" class="img-fluid">-->
+
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+           
+           {% block content %} 
+           
+           
+           
+
+
+           {% endblock content %}
+            
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+   
+   {% block body %} 
+
+   
+   {% endblock body %}
+    
+
+
+
+
+
+  </main>
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Kitale Shopping </span>
+          </a>
+          <p>Kevin is a software developer and designer who specializes <br>
+            in creating web designs and software development. He is responsible for 
+            the design and layout of websites and web pages, ensuring they meet customer expectations.
+             Kevin is also skilled in problem diagnosis and resolution, collaborating effectively with teams of developers, designers, and project managers. He values continuous learning in the dynamic field of technology, where new tools and frameworks are constantly emerging.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="https://x.com/home"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/kevin-simiyu-7a38a5135/"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about us">About us</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">ERPNex Customization</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>Ruiru-Kiambu</p>
+          <p>Nairbi-Kenya</p>
+          <p>Kenya</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+254 704607616</span></p>
+          <p><strong>Email:</strong> <span>gavinsimiyu@gmail.com</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename"></strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+
+        Designed by <a href="https://bootstrapmade.com/">Kevin Simiyu</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/php-email-form/validate.js'%}"></script>
+  <script src="{% static '/assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static '/assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
